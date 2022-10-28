@@ -16,7 +16,7 @@
     <header>
 
         <div class="topnav">
-            <a><img src="poste.jpg" alt=""></a>
+            <a href="main_page.php"><img src="poste.jpg" alt=""></a>
             <a href="users.php" class="text">Utilisateurs</a>
             <a href="manage-users.php" class="text">Gestion des utilisateurs</a>
             <a href="users_log.php" class="text">Entrée des utilisateurs</a>
