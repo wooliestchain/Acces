@@ -1,4 +1,10 @@
 <?php
+$nom_serveur = "localhost";
+$utilisateur = "root";
+$mot_de_passe = "";
+$nom_base_données = "nodemculog";
+$con = mysqli_connect($nom_serveur, $utilisateur, $mot_de_passe, $nom_base_données);
+
 
 
 ?>
@@ -10,7 +16,6 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="users.css">
     <title>Document</title>
 </head>
 <body>

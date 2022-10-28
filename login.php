@@ -13,7 +13,7 @@ if (isset($_POST['boutton-valider'])) { // Si on clique sur le boutton , alors :
         $nom_serveur = "localhost";
         $utilisateur = "root";
         $mot_de_passe = "";
-        $nom_base_données = "acces";
+        $nom_base_données = "nodemculog";
         $con = mysqli_connect($nom_serveur, $utilisateur, $mot_de_passe, $nom_base_données);
         //requete pour selectionner  l'utilisateur qui a pour email et mot de passe les identifiants qui ont été entrées
         $req = mysqli_query($con, "SELECT * FROM admins WHERE admin_email = '$email' AND admin_password ='$mdp' ");
