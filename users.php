@@ -1,5 +1,21 @@
 <?php
+    date_default_timezone_set('Africa/Tunis');
+    $d = date("d-m-Y");
 
+    $Tarrive = mktime(9,00,00);
+    $TimeArrive = date("H-i-s",$Tarrive);
+
+    $Tleft = mktime(16,00,00);
+    $Timeleft = date("H:i:sa", $Tleft);
+
+    if (!empty($_POST['seldate'])) {
+        $seldate = $_POST['date'];
+    }
+    else{
+        $seldate = $d;
+    }
+
+    $_SESSION["exportdata"] = $seldate;
 
 ?>
 
