@@ -16,7 +16,7 @@ $con = mysqli_connect($nom_serveur, $utilisateur, $mot_de_passe, $nom_base_donn�
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="user-log.css">
+    <link rel="stylesheet" href="logs.css">
     <title>Document</title>
 </head>
 <body>
@@ -35,23 +35,35 @@ $con = mysqli_connect($nom_serveur, $utilisateur, $mot_de_passe, $nom_base_donn�
 
 
     <section>
-        <h1 class="user_list">Liste des entrées</h1>
-        <div class="table_list">
-            <table class="table">
-                <thead class="table_primary">
+        <?php
+        $Tarrive = mktime(9,00,00);
+        $TimeArrive = date("H-i-s",$Tarrive);
+
+        $Tleft = mktime(16,00,00);
+        $Timeleft = date("H:i:s", $Tleft);
+
+        ?>
+        <h2 class="time">
+            Heure d'arrivée :<?php echo $TimeArrive?><br>
+            Heure de départ :<?php echo $Timeleft?>
+        </h2>
+        <h1 class="logs_list">Liste des entrées</h1>
+        <div class="table_logs_list">
+            <table class="table_logs">
+                <thead class="table_logs_primary">
                 <tr>
-                    <td class="info">ID</td>
-                    <td class="info">Nom</td>
-                    <td class="info">CardID</td>
-                    <td class="info" >Numéro</td>
-                    <td  class="info">Date</td>
-                    <td  class="info">Heure d'entrée</td>
-                    <td  class="info">Heure de sortie</td>
-                    <td  class="info">Appéciation</td>
-                    <td  class="info" hidden>Batiment</td>
+                    <td class="info_logs">ID</td>
+                    <td class="info_logs">Nom</td>
+                    <td class="info_logs">CardID</td>
+                    <td class="info_logs" >Numéro</td>
+                    <td  class="info_logs">Date</td>
+                    <td  class="info_logs">Heure d'entrée</td>
+                    <td  class="info_logs">Heure de sortie</td>
+                    <td  class="info_logs">Appéciation</td>
+                    <td  class="info_logs" hidden>Batiment</td>
                 </tr>
                 </thead>
-                <tbody class="table_secondary">
+                <tbody class="table_logs_secondary">
                 <?php
 
 
@@ -66,7 +78,7 @@ $con = mysqli_connect($nom_serveur, $utilisateur, $mot_de_passe, $nom_base_donn�
                 $con = mysqli_connect($nom_serveur, $utilisateur, $mot_de_passe, $nom_base_données);
 
                 date_default_timezone_set('Africa/Tunis');
-                $d = date("2022-10-28");
+                $d = date('Y/m/d', time());
 
                 $Tarrive = mktime(9,00,00);
                 $TimeArrive = date("H-i-s",$Tarrive);
