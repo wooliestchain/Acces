@@ -15,3 +15,50 @@ body{
     display: block;
 
 }
+
+
+header h1{
+    text-align: center;
+    text-size-adjust: px;
+    margin-top: 50px;
+    margin-bottom: 10px;
+}
+
+header a img{
+    height: 100px;
+    width: 100px;
+    align-items: center;
+    box-shadow: 0 10px 10px 0 rgba(15, 33, 95, 0.844), 0 10px 10px 0 rgb(0 0 0 / 10%);
+
+}
+
+
+.topnav {
+    overflow: hidden;
+    background-color: #187881;
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-top: 30px;
+
+}
+
+.topnav a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none !important;
+    font-size: 17px;
+    margin-left: 50px;
+
+}
+
+.topnav a:hover {
+    background-color: #20a1ac;
+    color: black;
+}
+
+.text{
+    margin-top: 40px;
+}
