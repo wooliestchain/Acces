@@ -32,5 +32,54 @@
             </div>
         </form>
     </main>
+    <section>
+        <h1 class="users_list">Liste des Employés</h1>
+        <div class="table_users_list">
+            <table class="table_users">
+                <thead class="table_users_primary">
+                <tr>
+                    <td class="info_users" hidden>ID</td>
+                    <td class="info_users">Nom</td>
+                    <td class="info_users" >Numéro</td>
+                    <td  class="info_users">Genre</td>
+                    <td  class="info_users">Carte ID</td>
+                    <td  class="info_users" hidden>Carte ID Select</td>
+                </tr>
+                </thead>
+                <tbody class="table_users_secondary">
+                <?php
+
+                //Connect to database
+                $nom_serveur = "localhost";
+                $utilisateur = "root";
+                $mot_de_passe = "";
+                $nom_base_données = "nodemculog";
+                $con = mysqli_connect($nom_serveur, $utilisateur, $mot_de_passe, $nom_base_données);
+
+                $sql = "SELECT * FROM users ORDER BY id DESC";
+                $result=mysqli_query($con,$sql);
+
+                if (mysqli_num_rows($result) > 0)
+                {
+                    while ($row = mysqli_fetch_assoc($result))
+                    {
+                        ?>
+                        <tr>
+                            <td hidden><?php echo $row['id'];?></td>
+                            <td><?php echo $row['username'];?></td>
+                            <td><?php echo $row['SerialNumber'];?></td>
+                            <td><?php echo $row['gender'];?></td>
+                            <td><?php echo $row['CardID'];?></td>
+                            <td><?php echo $row['CardID_select'];?></td>
+                        </tr>
+                        <?php
+                    }
+                }
+
+                ?>
+                </tbody>
+            </table>
+        </div>
+    </section>
 </body>
 </html>

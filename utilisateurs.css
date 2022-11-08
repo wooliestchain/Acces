@@ -114,3 +114,68 @@ input[type=submit]{
 
 }*/
 
+table{
+    border-collapse: collapse;
+    border-spacing: 0;
+    position: center;
+    margin-left: 200px;
+}
+
+.users_list{
+    font-size: 28px; !important;
+    text-transform: uppercase;
+    font-weight: 300;
+    font-family: New Century Schoolbook, TeX Gyre Schola, serif !important;
+    text-align: center;
+
+}
+
+tr{
+    padding: 15px;
+    text-align: center; !important;
+    font-weight: 500;
+    font-size: 17px;
+    text-transform: uppercase;
+    border: none; !important;
+    color: #000;
+    background-color: rgba(255, 255, 255, 0.56) !important;
+    border-top: solid 2px rgba(255, 255, 255, 0.1);
+
+
+}
+
+td{
+    padding: 15px;
+    text-align: center; !important;
+    font-weight: 500;
+    font-size: 17px;
+    text-transform: uppercase;
+    border: none; !important;
+    color: #000;
+    background-color: rgba(20, 123, 183, 0.56) !important;
+    border-bottom: solid 2px rgba(255,255,255,0.1);
+
+}
+
+.table_users>thead>tr>th{
+    padding: 8px;
+    line-height: 1.42857143;
+    vertical-align: top;
+    border-top: 1px solid #ddd;
+}
+
+.table_users tr, .table_users td{
+    padding: 0.75rem;
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
+
+}
+
+.info_users{
+    background-color: rgba(121, 175, 208, 0.56) !important;
+
+}
+
+.time{
+
+}

@@ -42,12 +42,14 @@ $con = mysqli_connect($nom_serveur, $utilisateur, $mot_de_passe, $nom_base_donn�
         $Tleft = mktime(16,00,00);
         $Timeleft = date("H:i:s", $Tleft);
 
+        date_default_timezone_set('Africa/Tunis');
+        $d = date('Y/m/d', time());
         ?>
         <h2 class="time">
             Heure d'arrivée :<?php echo $TimeArrive?><br>
             Heure de départ :<?php echo $Timeleft?>
         </h2>
-        <h1 class="logs_list">Liste des entrées</h1>
+        <h1 class="logs_list">Liste des entrées du <?php echo $d?></h1>
         <div class="table_logs_list">
             <table class="table_logs">
                 <thead class="table_logs_primary">
