@@ -44,9 +44,13 @@
 
         <div class="modifier">
             <form action="modif.php" method="post">
-
+                <input type="text" name="id1" id="username1" placeholder="ID de l'employé"><br>
                 <input type="text" name="name1" id="username1" placeholder="Entrer le nom de l'employé"><br>
                 <input type="text" name="serial1" id="serail1" placeholder="Numéro de série"><br>
+                <input type="text" name="card_id1" id="serail1" placeholder="ID Carte"><br>
+                <input type="text" name="card_id_select1" id="serail1" placeholder="CarteID select"><br>
+
+
 
                 <legend>Choisissez le genre</legend>
 
