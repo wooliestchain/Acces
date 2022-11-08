@@ -26,10 +26,12 @@
 
 
         <div class="ajouter">
-            <form action="#">
+            <form action="ajout.php" method="post">
 
-                <input type="text" name="email" id="username1" placeholder="Entrer le nom de l'employé"><br>
+                <input type="text" name="name" id="username1" placeholder="Entrer le nom de l'employé"><br>
                 <input type="text" name="serial" id="serail1" placeholder="Numéro de série"><br>
+                <input type="text" name="card_id" id="serail1" placeholder="ID Carte"><br>
+                <input type="text" name="card_id_select" id="serail1" placeholder="CarteID select"><br>
 
                 <legend>Choisissez le genre</legend>
 
@@ -37,14 +39,14 @@
                 <label for="huey" class="female">Femme</label>
                 <input type="radio" id="homme" name="drone" value="homme">
                 <label for="homme" class="male">Homme</label><br>
-                <input type="submit" value="Ajouter" name="boutton-valider">
+                <input type="submit" value="Ajouter" name="boutton-valider-ajout">
         </div>
 
         <div class="modifier">
-            <form action="#">
+            <form action="modif.php" method="post">
 
-                <input type="text" name="email" id="username1" placeholder="Entrer le nom de l'employé"><br>
-                <input type="text" name="serial" id="serail1" placeholder="Numéro de série"><br>
+                <input type="text" name="name1" id="username1" placeholder="Entrer le nom de l'employé"><br>
+                <input type="text" name="serial1" id="serail1" placeholder="Numéro de série"><br>
 
                 <legend>Choisissez le genre</legend>
 
@@ -52,7 +54,7 @@
                 <label for="huey" class="female">Femme</label>
                 <input type="radio" id="homme1" name="drone1" value="homme1">
                 <label for="homme" class="male">Homme</label><br>
-                <input type="submit" value="Modifier" name="boutton-valider">
+                <input type="submit" value="Modifier" name="boutton-valider-modif">
         </div>
 
 
@@ -79,7 +81,7 @@
                 $nom_base_données = "nodemculog";
                 $con = mysqli_connect($nom_serveur, $utilisateur, $mot_de_passe, $nom_base_données);
 
-                $sql = "SELECT * FROM users WHERE CardID_select=1 ORDER BY id DESC";
+                $sql = "SELECT * FROM users ORDER BY id DESC";
                 $result = mysqli_stmt_init($con);
                 if (!mysqli_stmt_prepare($result, $sql)) {
                     echo '<p class="error">SQL Error</p>';
