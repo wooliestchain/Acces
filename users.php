@@ -1,5 +1,4 @@
 
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -7,7 +6,8 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="users.css">
+    <link rel="stylesheet" href="utilisateurs.css">
+
     <title>Utilisateurs</title>
 </head>
 <body>
@@ -23,5 +23,14 @@
         <div class="up_info1 alert-danger"></div>
         <div class="up_info2 alert-success"></div>
     </header>
+
+    <main>
+        <form method="GET">
+            <div class="cherche">
+            <input type="search" name="q" placeholder="Nom de l'employé..." />
+            <input type="submit" value="chercher" />
+            </div>
+        </form>
+    </main>
 </body>
 </html>
