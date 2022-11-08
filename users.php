@@ -70,7 +70,7 @@
                             <td><?php echo $row['SerialNumber'];?></td>
                             <td><?php echo $row['gender'];?></td>
                             <td><?php echo $row['CardID'];?></td>
-                            <td><?php echo $row['CardID_select'];?></td>
+                            <td hidden><?php echo $row['CardID_select'];?></td>
                         </tr>
                         <?php
                     }
