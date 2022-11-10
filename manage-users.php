@@ -42,24 +42,7 @@
                 <input type="submit" value="Ajouter" name="boutton-valider-ajout">
         </div>
 
-        <div class="modifier">
-            <form action="modif.php" method="post">
-                <input type="text" name="id1" id="username1" placeholder="ID de l'employé"><br>
-                <input type="text" name="name1" id="username1" placeholder="Entrer le nom de l'employé"><br>
-                <input type="text" name="serial1" id="serail1" placeholder="Numéro de série"><br>
-                <input type="text" name="card_id1" id="serail1" placeholder="ID Carte"><br>
-                <input type="text" name="card_id_select1" id="serail1" placeholder="CarteID select"><br>
 
-
-
-                <legend>Choisissez le genre</legend>
-
-                <input type="radio" id="femme1" name="drone1" value="femme1" checked>
-                <label for="huey" class="female">Femme</label>
-                <input type="radio" id="homme1" name="drone1" value="homme1">
-                <label for="homme" class="male">Homme</label><br>
-                <input type="submit" value="Modifier" name="boutton-valider-modif">
-        </div>
 
 
 
@@ -103,7 +86,7 @@
                                 <td><?php echo $row['gender'];?></td>
                                 <td hidden><?php echo $row['CardID'];?></td>
                                 <td hidden><?php echo $row['CardID_select'];?></td>
-                                <td class="modif-pen"><a href="modif.php?id=<?=$row['id']?>" class="pen"><img src="images/pen.png"></a></td>
+                                <td ><a href="modif.php?id=<?=$row['id']?>" ><img src="images/pen.png"></a></td>
 
                             </tr>
                             <?php
