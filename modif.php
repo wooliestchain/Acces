@@ -40,7 +40,7 @@ if(isset($_POST['boutton-valider-modif'])){
 }
 ?>
 <div class="form">
-    <a href="manage-users.php" class="back_btn"><img src="images/back.png">Retour</a>
+    <a href="manage-users.php" class="back_btn"><img src="images/back_btn.png">Retour</a>
     <h2>Modifier l'employé : <?=$row['username']?></h2>
     <p  class="erreur_message">
         <?php
@@ -50,15 +50,15 @@ if(isset($_POST['boutton-valider-modif'])){
         ?>
     </p>
     <form action="" method="post">
-        <label>Nom de l'employé</label>
+        <label>Nom de l'employé</label><br>
         <input type="text" name="name1" id="username1" value="<?=$row['username']?>" ><br>
-        <label>Numéro</label>
+        <label>Numéro</label><br>
         <input type="text" name="serial1" id="serail1" value="<?=$row['SerialNumber']?>"><br>
-        <label>Sexe</label>
+        <label>Sexe</label><br>
         <input type="text" id="femme1" name="drone1" value="<?=$row['gender']?>"><br>
-        <label>ID Carte</label>
+        <label>ID Carte</label><br>
         <input type="text" name="card_id1" id="serail1" value="<?=$row['CardID']?>"><br>
-        <label>Carte ID Select</label>
+        <label>Carte ID Select</label><br>
         <input type="text" name="card_id_select1" id="serail1" value="<?=$row['CardID_select']?>"><br>
 
         <input type="submit" value="Modifier" name="boutton-valider-modif">
