@@ -170,6 +170,8 @@ table {
     margin-left: 550px;
 }
 
+
+
 .user_list{
     font-size: 28px !important;
     color: #112841;
@@ -219,7 +221,7 @@ td{
     background-color: rgba(121, 175, 208, 0.56) !important;
 }
 
-table img{
+.plus{
     height: 25px;
     width: 25px;
 }
