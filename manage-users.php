@@ -74,6 +74,7 @@
                     <td class="info">Genre</td>
                     <td class="info" hidden>UID</td>
                     <td  class="info" hidden>UID Select</td>
+                    <td  class="info">Modifier</td>
                 </tr>
                 </thead>
                 <tbody class="table_secondary">
@@ -102,6 +103,8 @@
                                 <td><?php echo $row['gender'];?></td>
                                 <td hidden><?php echo $row['CardID'];?></td>
                                 <td hidden><?php echo $row['CardID_select'];?></td>
+                                <td><a href="modif.php?id=<?=$row['id']?>" class="pen"><img src="images/pen.png"></a></td>
+
                             </tr>
                             <?php
                         }
