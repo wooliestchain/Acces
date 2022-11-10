@@ -103,7 +103,7 @@
                                 <td><?php echo $row['gender'];?></td>
                                 <td hidden><?php echo $row['CardID'];?></td>
                                 <td hidden><?php echo $row['CardID_select'];?></td>
-                                <td><a href="modif.php?id=<?=$row['id']?>" class="pen"><img src="images/pen.png"></a></td>
+                                <td class="modif-pen"><a href="modif.php?id=<?=$row['id']?>" class="pen"><img src="images/pen.png"></a></td>
 
                             </tr>
                             <?php
