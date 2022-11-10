@@ -58,6 +58,7 @@
                     <td class="info" hidden>UID</td>
                     <td  class="info" hidden>UID Select</td>
                     <td  class="info">Modifier</td>
+                    <td  class="info">Profil</td>
                 </tr>
                 </thead>
                 <tbody class="table_secondary">
@@ -86,7 +87,8 @@
                                 <td><?php echo $row['gender'];?></td>
                                 <td hidden><?php echo $row['CardID'];?></td>
                                 <td hidden><?php echo $row['CardID_select'];?></td>
-                                <td  ><a href="modif.php?id=<?=$row['id']?>" class="plus" ><img  src="images/pen.png"></a></td>
+                                <td  ><a href="modif.php?id=<?=$row['id']?>" class="plus" ><img  src="images/edit.png"></a></td>
+                                <td  ><a href="profil.php?id=<?=$row['id']?>" class="plus" ><img  src="images/user.png"></a></td>
 
                             </tr>
                             <?php
