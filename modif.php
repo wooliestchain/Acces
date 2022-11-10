@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Ajouter</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="modif.css">
 </head>
 <body>
 <?php
@@ -40,7 +40,7 @@ if(isset($_POST['boutton-valider-modif'])){
 }
 ?>
 <div class="form">
-    <a href="manage-users.php" class="back_btn"><img src="images/back_btn.png">Retour</a>
+    <a href="manage-users.php" class="back_btn"><img src="images/back.png"><span>Retour</span></a>
     <h2>Modifier l'employé : <?=$row['username']?></h2>
     <p  class="erreur_message">
         <?php
