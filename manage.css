@@ -221,7 +221,7 @@ td{
     background-color: rgba(121, 175, 208, 0.56) !important;
 }
 
-.plus{
-    height: 25px;
-    width: 25px;
+.plus img{
+    height: 5px;
+    width: 5px;
 }
