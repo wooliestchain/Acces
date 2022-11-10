@@ -25,9 +25,9 @@
     </header>
 
     <main>
-        <form method="GET">
+        <form action="search.php" method="GET">
             <div class="cherche">
-            <input type="search" name="q" placeholder="Nom de l'employé..." />
+            <input type="search" name="user_nom" placeholder="Nom de l'employé..." />
             <input type="submit" value="chercher" />
             </div>
         </form>
