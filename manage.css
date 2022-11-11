@@ -60,7 +60,7 @@ header a img{
 }
 
 .text{
-    margin-top: 40px;
+    margin-top: 60px;
 }
 
 input[type=text]{
@@ -116,34 +116,6 @@ input[type=submit]{
     border-radius: 0 25px;
 }
 
-.modifier{
-    position: relative;
-    z-index: 1;
-    background: rgba(10, 10, 10, 0.3);
-    max-width: 360px;
-    margin: 0 auto;
-    padding: 50px;
-    text-align: center;
-    box-shadow: 0 10px 10px 0 rgb(0 0 0 / 20%), 0 10px 10px 0 rgb(0 0 0 / 10%);
-    border-radius: 25px 25px;
-    border-style: none;
-    margin-right: 100px;
-    margin-top: -360px;
-}
-
-.modifier input[type=text]{
-    font-family: "Roboto", sans-serif;
-    outline: 0;
-    background: #f2f2f2;
-    width: 100%;
-    border: 0;
-    margin: 0 0 15px;
-    padding: 15px;
-    box-sizing: border-box;
-    font-size: 15px;
-    border-radius: 0 25px;
-}
-
 .male{
     color: #07e0e0;
 }
@@ -158,15 +130,15 @@ legend{
     margin-top: 5px;
 }
 
-section{
-    margin-right: 350px;
+.table_list{
+    margin-top: -300px;
 }
 
 table {
     border-collapse: collapse;
     border-spacing: 0;
     position: center;
-    margin-left: 550px;
+    margin-left: 450px;
 }
 
 
@@ -221,7 +193,3 @@ td{
     background-color: rgba(121, 175, 208, 0.56) !important;
 }
 
-.table_list .table .table_secondary tr td .plus img{
-    height: 5px;
-    width: 5px;
-}
