@@ -88,7 +88,7 @@
                                 <td hidden><?php echo $row['CardID'];?></td>
                                 <td hidden><?php echo $row['CardID_select'];?></td>
                                 <td  ><a href="modif.php?id=<?=$row['id']?>" class="plus" ><img  src="images/edit.png"></a></td>
-                                <td  ><a href="profil.php?id=<?=$row['id']?>" class="plus" ><img  src="images/user.png"></a></td>
+                                <td  ><a href="profil.php?id=<?=$row['id']?> && username=<?=$row['username']?>" class="plus" ><img  src="images/user.png"></a></td>
 
                             </tr>
                             <?php

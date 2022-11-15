@@ -43,7 +43,7 @@ $con = mysqli_connect($nom_serveur, $utilisateur, $mot_de_passe, $nom_base_donn√
         $Timeleft = date("H:i:s", $Tleft);
 
         date_default_timezone_set('Africa/Tunis');
-        $d = date('Y/m/d', time());
+        $d = date('2022/11/07');
         ?>
         <h2 class="time">
             Heure d'arriv√©e :<?php echo $TimeArrive?><br>
@@ -80,7 +80,7 @@ $con = mysqli_connect($nom_serveur, $utilisateur, $mot_de_passe, $nom_base_donn√
                 $con = mysqli_connect($nom_serveur, $utilisateur, $mot_de_passe, $nom_base_donn√©es);
 
                 date_default_timezone_set('Africa/Tunis');
-                $d = date('Y/m/d', time());
+                $d = date('2022/11/07');
 
                 $Tarrive = mktime(9,00,00);
                 $TimeArrive = date("H-i-s",$Tarrive);
@@ -108,7 +108,7 @@ $con = mysqli_connect($nom_serveur, $utilisateur, $mot_de_passe, $nom_base_donn√
                             <tr>
                                 <td><?php echo $row['id'];?></td>
                                 <td><?php echo $row['CardNumber'];?></td>
-                                <td><?php echo $row['Name'];?></td>
+                                <td><?php echo $row['username'];?></td>
                                 <td><?php echo $row['SerialNumber'];?></td>
                                 <td><?php echo $row['DateLog'];?></td>
                                 <td><?php echo $row['TimeIn'];?></td>
