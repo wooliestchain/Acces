@@ -15,9 +15,9 @@ $mot_de_passe = "";
 $nom_base_données = "nodemculog";
 $con = mysqli_connect($nom_serveur, $utilisateur, $mot_de_passe, $nom_base_données);
 //on récupère le id dans le lien
-$id = $_GET['id'];
+$card = $_GET['CardID'];
 //requeter pour afficher les infos d'un employé
-$req = mysqli_query($con,"SELECT * FROM users WHERE id = $id" );
+$req = mysqli_query($con,"SELECT * FROM users WHERE CardID = $card" );
 $row = mysqli_fetch_assoc($req);
 //verifier que le boutton ajoute a bien été cliqué
 if(isset($_POST['boutton-valider-modif'])){
@@ -27,7 +27,7 @@ if(isset($_POST['boutton-valider-modif'])){
     //verfier que tous les champs int été remplis
     if(isset($name1) && isset($serial1) && isset($drone1) && isset($card_id1) && isset($card_id_select1)){
         //requete de modification
-        $req = mysqli_query($con, "UPDATE users SET username='$name1', SerialNumber='$serial1', gender='$drone1', CardID='$card_id1', CardID_select='$card_id_select1' WHERE id=$id");
+        $req = mysqli_query($con, "UPDATE users SET username='$name1', SerialNumber='$serial1', gender='$drone1', CardID='$card_id1', CardID_select='$card_id_select1' WHERE CardID = $card");
         if($req){//si la requete a été effectuée avec succés,on fait une redirection
             header("manage-users.php");
         }else{//si non

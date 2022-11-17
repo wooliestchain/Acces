@@ -55,7 +55,7 @@
                     <td class="info">NOM</td>
                     <td class="info">Numéro</td>
                     <td class="info">Genre</td>
-                    <td class="info" hidden>UID</td>
+                    <td class="info" >UID</td>
                     <td  class="info" hidden>UID Select</td>
                     <td  class="info">Modifier</td>
                     <td  class="info">Profil</td>
@@ -85,9 +85,9 @@
                                 <td><?php echo $row['username'];?></td>
                                 <td><?php echo $row['SerialNumber'];?></td>
                                 <td><?php echo $row['gender'];?></td>
-                                <td hidden><?php echo $row['CardID'];?></td>
+                                <td ><?php echo $row['CardID'];?></td>
                                 <td hidden><?php echo $row['CardID_select'];?></td>
-                                <td  ><a href="modif.php?id=<?=$row['id']?>" class="plus" ><img  src="images/edit.png"></a></td>
+                                <td  ><a href="modif.php?CardID=<?=$row['CardID']?>" class="plus" ><img  src="images/edit.png"></a></td>
                                 <td  ><a href="profil.php?id=<?=$row['id']?> && username=<?=$row['username']?>" class="plus" ><img  src="images/user.png"></a></td>
 
                             </tr>

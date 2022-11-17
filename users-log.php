@@ -89,25 +89,6 @@ $con = mysqli_connect($nom_serveur, $utilisateur, $mot_de_passe, $nom_base_donn√
                 $Tleft = mktime(16,00,00);
                 $Timeleft = date("H:i:sa", $Tleft);
 
-                function appreciation($Tarrive,$TimeArrive,$con){
-                    $sql_date = "SELECT TimeIn FROM logs";
-                    $result=mysqli_query($con,$sql_date);
-
-                    if ($Tarrive<$TimeArrive ){
-                        $sql_date_up = "UPDATE `logs` SET UserStat='Retard' WHERE TimeIn=$Tarrive";
-                        $result=mysqli_query($con,$sql_date_up);
-
-                        if((mysqli_num_rows($result) > 0)){
-                            while ($row = mysqli_fetch_assoc($result)){
-
-                            }
-                        }
-
-                    }else{
-                        echo "Erreur";
-                    }
-                }
-
                 if (!empty($_POST['seldate'])) {
                     $seldate = $_POST['date'];
                 }
@@ -133,7 +114,7 @@ $con = mysqli_connect($nom_serveur, $utilisateur, $mot_de_passe, $nom_base_donn√
                                 <td><?php echo $row['DateLog'];?></td>
                                 <td><?php echo $row['TimeIn'];?></td>
                                 <td><?php echo $row['TimeOut'];?></td>
-                                <td><?php echo appreciation($row['UserStat']);?></td>
+                                <td><?php echo $row['UserStat'];?></td>
                                 <td hidden><?php echo $row['building_number'];?></td>
                             </tr>
                             <?php
