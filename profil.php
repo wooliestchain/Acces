@@ -42,12 +42,11 @@
                 $mot_de_passe = "";
                 $nom_base_données = "nodemculog";
                 $con = mysqli_connect($nom_serveur, $utilisateur, $mot_de_passe, $nom_base_données);
-                $id = $_GET['id'];
                 $username = $_GET['username'];
 
 
 
-                $sql = "SELECT * FROM users WHERE id=$id and username=$username";
+                $sql = "SELECT * FROM logs WHERE username=$username";
                 $result = mysqli_stmt_init($con);
                 if (!mysqli_stmt_prepare($result, $sql)) {
                     echo '<p class="error">SQL Error</p>';
