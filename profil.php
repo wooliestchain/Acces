@@ -6,7 +6,11 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="profil.css">
-    <title>Document</title>
+    <?php
+    $username = $_GET['username'];
+
+    ?>
+    <title><?php  echo $username ?></title>
 </head>
 <body>
     <header>
@@ -49,7 +53,7 @@
                 $username = $_GET['username'];
 
 
-                $sql = "SELECT * FROM logs WHERE username=$username";
+                $sql = "SELECT * FROM logs WHERE username='$username'";
                 $result = mysqli_stmt_init($con);
                 if (!mysqli_stmt_prepare($result, $sql)) {
                     echo '<p class="error">SQL Error</p>';
