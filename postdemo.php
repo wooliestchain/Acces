@@ -9,7 +9,7 @@ $nom_base_données = "nodemculog";
 $conn = mysqli_connect($nom_serveur, $utilisateur, $mot_de_passe, $nom_base_données);
 //**********************************************************************************************
 //Get current date and time
-date_default_timezone_set('Asia/Damascus');
+date_default_timezone_set('Africa/Tunis');
 $d = date("Y-m-d");
 $t = date("H:i:sa");
 //**********************************************************************************************
@@ -19,7 +19,9 @@ $TimeArrive = date("H:i:sa", $Tarrive);
 $Tleft = mktime(02,30,00);
 $Timeleft = date("H:i:sa", $Tleft);
 //**********************************************************************************************
-
+$suspect = date("08:00:00");
+$suspect_late = date("22:00:00");
+$suspect_late_1 = date("00:00:00");
 if(!empty($_GET['test'])){
     if($_GET['test'] == "test"){
         echo "The Website is online";
@@ -59,12 +61,22 @@ if(!empty($_GET['CardID'])){
                     $resultl = mysqli_stmt_get_result($result);
                     //*****************************************************
                     //Login
+
+
                     if (!$row = mysqli_fetch_assoc($resultl)){
-                        if ($t <= $TimeArrive) {
-                            $UserStat = "Arrived on time";
+
+                        if ($Tarrive <= $TimeArrive) {
+                            $UserStat = "Arrivé à l'heure";
                         }
                         else{
-                            $UserStat = "Arrived late";
+                            $UserStat = "Arrivé trop tôt";
+                            /*$msg = "L'employé $Uname est arrivé à une heure suspecte";
+
+// use wordwrap() if lines are longer than 70 characters
+                            $msg = wordwrap($msg, 70);
+
+// send email
+                            mail("levyren38@gmail.com", "Entrée suspecte", $msg);*/
                         }
                         $sql = "INSERT INTO logs (CardNumber, username, SerialNumber, DateLog, TimeIn, UserStat) VALUES (? ,?, ?, CURDATE(), CURTIME(), ?)";
                         $result = mysqli_stmt_init($conn);
@@ -79,22 +91,23 @@ if(!empty($_GET['CardID'])){
                             echo "login";
                             exit();
                         }
+
                     }
                     //*****************************************************
                     //Logout
                     else {
 
                         if ($t >= $Timeleft && $row['TimeIn'] <= $TimeArrive) {
-                            $UserStat = "Arrived and Left on time";
+                            $UserStat = "Arrivé et départ dans les temps";
                         }
                         elseif ($t < $Timeleft && $row['TimeIn'] > $TimeArrive){
-                            $UserStat = "Arrived late and Left early";
+                            $UserStat = "Arrivé en retard et parti trop tôt";
                         }
                         elseif ($t < $Timeleft && $row['TimeIn'] <= $TimeArrive) {
-                            $UserStat = "Arrived on time and Left early";
+                            $UserStat = "Arrivé à temps et parti tôt";
                         }
                         elseif ($t >= $Timeleft && $row['TimeIn'] > $TimeArrive) {
-                            $UserStat = "Arrived late and Left on time";
+                            $UserStat = "Arrivé en retard et parti à temps";
                         }
                         $sql="UPDATE logs SET TimeOut=CURTIME(), UserStat=? WHERE CardNumber=? AND DateLog=CURDATE()";
                         $result = mysqli_stmt_init($conn);
