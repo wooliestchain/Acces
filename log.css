@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Alegreya&display=swap');
+
+body{
+    background: -webkit-linear-gradient(left, #0e251f, #a3a426);
+    background: linear-gradient(to right, #b6b22d, #21a0ab);
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    font-size: 15px;
+
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #333;
+    background-color: #fff;
+    display: block;
+
+}
+
+
+header h1{
+    text-align: center;
+    text-size-adjust: px;
+    margin-top: 50px;
+    margin-bottom: 10px;
+}
+
+header a img{
+    height: 100px;
+    width: 100px;
+    align-items: center;
+    box-shadow: 0 10px 10px 0 rgba(15, 33, 95, 0.844), 0 10px 10px 0 rgb(0 0 0 / 10%);
+
+}
+
+
+.topnav {
+    overflow: hidden;
+    background-color: #187881;
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-top: 30px;
+
+}
+
+.topnav a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none !important;
+    font-size: 17px;
+    margin-left: 50px;
+
+}
+
+.topnav a:hover {
+    background-color: #20a1ac;
+    color: black;
+}
+
+.text{
+    margin-top: 40px;
+}
+
+section{
+    margin: 95px;
+    margin-top: 0px;
+
+}
+
+table{
+    border-collapse: collapse;
+    border-spacing: 0;
+    position: center;
+    margin-left: 200px;
+}
+
+.logs_list{
+    font-size: 28px; !important;
+    text-transform: uppercase;
+    font-weight: 300;
+    font-family: New Century Schoolbook, TeX Gyre Schola, serif !important;
+    text-align: center;
+
+}
+
+tr{
+    padding: 15px;
+    text-align: center; !important;
+    font-weight: 500;
+    font-size: 17px;
+    text-transform: uppercase;
+    border: none; !important;
+    color: #000;
+    background-color: rgba(255, 255, 255, 0.56) !important;
+    border-top: solid 2px rgba(255, 255, 255, 0.1);
+
+
+}
+
+td{
+    padding: 15px;
+    text-align: center; !important;
+    font-weight: 500;
+    font-size: 17px;
+    text-transform: uppercase;
+    border: none; !important;
+    color: #000;
+    background-color: rgba(20, 123, 183, 0.56) !important;
+    border-bottom: solid 2px rgba(255,255,255,0.1);
+
+}
+
+.table_logs>thead>tr>th{
+    padding: 8px;
+    line-height: 1.42857143;
+    vertical-align: top;
+    border-top: 1px solid #ddd;
+}
+
+.table_logs tr, .table_logs td{
+    padding: 0.75rem;
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
+
+}
+
+.info_logs{
+    background-color: rgba(234, 234, 125, 0.56) !important;
+
+}
+
+.time{
+
+}
