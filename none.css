@@ -1,0 +1,15 @@
+body{
+    background: -webkit-linear-gradient(left, #0e251f, #a3a426);
+    background: linear-gradient(to right, #b6b22d, #21a0ab);
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    font-size: 15px;
+
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #333;
+    background-color: #fff;
+    display: block;
+
+}
