@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="profil.css">
+    <link rel="stylesheet" href="cook.css">
     <?php
     $username = $_GET['username'];
 
@@ -16,9 +16,9 @@
     <header>
         <div class="topnav">
             <a href="main_page.php"><img src="poste.jpg" alt=""></a>
-            <a href="users.php" class="text">Utilisateurs</a>
-            <a href="manage-users.php" class="text">Gestion des utilisateurs</a>
-            <a href="users-log.php" class="text">Entrée des utilisateurs</a>
+            <a href="users.php" class="text">Employés</a>
+            <a href="manage-users.php" class="text">Gestion des employés</a>
+            <a href="users-log.php" class="text">Entrées/Sorties</a>
             <a class="text">Se deconnecter</a>
         </div>
         <div class="up_info1 alert-danger"></div>
@@ -27,13 +27,14 @@
 
 
 
-        <h1 class="user_list">Historique des entrées</h1>
+        <h1 class="user_list">Historique des entrées/sorties</h1>
         <div class="table_list">
             <table class="table">
                 <thead class="table_primary">
                 <tr>
                     <td class="info">Carte</td>
                     <td class="info">Nom</td>
+                    <td class="info">Prénom</td>
                     <td class="info">Numéro</td>
                     <td class="info">Date</td>
                     <td class="info">Heure d'entrée</td>
@@ -67,6 +68,7 @@
                             <tr>
                                 <td><?php echo $row['CardNumber'];?></td>
                                 <td><?php echo $row['username'];?></td>
+                                <td><?php echo $row['prenom'];?></td>
                                 <td><?php echo $row['SerialNumber'];?></td>
                                 <td><?php echo $row['DateLog'];?></td>
                                 <td><?php echo $row['TimeIn'];?></td>

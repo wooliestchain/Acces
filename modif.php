@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Ajouter</title>
-    <link rel="stylesheet" href="modif.css">
+    <link rel="stylesheet" href="modife.css">
 </head>
 <body>
 <?php
@@ -25,9 +25,9 @@ if(isset($_POST['boutton-valider-modif'])){
     //extraction des infos envoyés dans les variables par la méthode POST
     extract($_POST);
     //verfier que tous les champs int été remplis
-    if(isset($name1) && isset($serial1) && isset($drone1) && isset($card_id1) && isset($card_id_select1)){
+    if(isset($name1) &&  isset($prename1) &&  isset($serial1) && isset($drone1) && isset($card_id1) && isset($card_id_select1)){
         //requete de modification
-        $req = mysqli_query($con, "UPDATE users SET username='$name1', SerialNumber='$serial1', gender='$drone1', CardID='$card_id1', CardID_select='$card_id_select1' WHERE CardID = $card");
+        $req = mysqli_query($con, "UPDATE users SET username='$name1', prenom='$prename1', SerialNumber='$serial1', gender='$drone1', CardID='$card_id1', CardID_select='$card_id_select1' WHERE CardID = $card");
         if($req){//si la requete a été effectuée avec succés,on fait une redirection
             header("manage-users.php");
         }else{//si non
@@ -41,7 +41,7 @@ if(isset($_POST['boutton-valider-modif'])){
 ?>
 <div class="form">
     <a href="manage-users.php" class="back_btn"><img src="images/back.png"><span>Retour</span></a>
-    <h2>Modifier l'employé : <?=$row['username']?></h2>
+    <h2>Ajouter/Modifier l'employé : <?=$row['username']?></h2>
     <p  class="erreur_message">
         <?php
         if (isset($message)){
@@ -52,6 +52,8 @@ if(isset($_POST['boutton-valider-modif'])){
     <form action="" method="post">
         <label>Nom de l'employé</label><br>
         <input type="text" name="name1" id="username1" value="<?=$row['username']?>" ><br>
+        <label>Prénom de l'employé</label><br>
+        <input type="text" name="prename1" id="prename" value="<?=$row['prenom']?>" ><br>
         <label>Numéro</label><br>
         <input type="text" name="serial1" id="serail1" value="<?=$row['SerialNumber']?>"><br>
         <label>Sexe</label><br>
@@ -61,7 +63,7 @@ if(isset($_POST['boutton-valider-modif'])){
         <label>Carte ID Select</label><br>
         <input type="text" name="card_id_select1" id="serail1" value="<?=$row['CardID_select']?>"><br>
 
-        <input type="submit" value="Modifier" name="boutton-valider-modif">
+        <input type="submit" value="Valider" name="boutton-valider-modif">
     </form>
 </div>
 </body>

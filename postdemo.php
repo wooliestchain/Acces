@@ -1,5 +1,5 @@
 <?php
-//Connect to database
+//Connexion base de données
 
 
 $nom_serveur = "localhost";
@@ -8,23 +8,23 @@ $mot_de_passe = "";
 $nom_base_données = "nodemculog";
 $conn = mysqli_connect($nom_serveur, $utilisateur, $mot_de_passe, $nom_base_données);
 //**********************************************************************************************
-//Get current date and time
+//Date et heure à l'instant t
 date_default_timezone_set('Africa/Tunis');
 $d = date("Y-m-d");
 $t = date("H:i:sa");
 //**********************************************************************************************
-$Tarrive = mktime(01,30,00);
-$TimeArrive = date("H:i:sa", $Tarrive);
+$Tarrive = mktime(07,30,00);
+$TimeArrive = date("H:i:s", $Tarrive);
 //**********************************************************************************************
 $Tleft = mktime(02,30,00);
-$Timeleft = date("H:i:sa", $Tleft);
+$Timeleft = date("H:i:s", $Tleft);
 //**********************************************************************************************
-$suspect = date("08:00:00");
+/*$suspect = date("08:00:00");
 $suspect_late = date("22:00:00");
-$suspect_late_1 = date("00:00:00");
+$suspect_late_1 = date("00:00:00");*/
 if(!empty($_GET['test'])){
     if($_GET['test'] == "test"){
-        echo "The Website is online";
+        echo "Le site est en ligne";
         exit();
     }
 }
@@ -45,9 +45,10 @@ if(!empty($_GET['CardID'])){
         $resultl = mysqli_stmt_get_result($result);
         if ($row = mysqli_fetch_assoc($resultl)){
             //*****************************************************
-            //An existed card has been detected for Login or Logout
+            //Carte detectée
             if (!empty($row['username'])){
                 $Uname = $row['username'];
+                $prename = $row['prenom'];
                 $Number = $row['SerialNumber'];
                 $sql = "SELECT * FROM logs WHERE CardNumber=? AND DateLog=CURDATE()";
                 $result = mysqli_stmt_init($conn);
@@ -60,25 +61,17 @@ if(!empty($_GET['CardID'])){
                     mysqli_stmt_execute($result);
                     $resultl = mysqli_stmt_get_result($result);
                     //*****************************************************
-                    //Login
+                    //Entrée
 
 
                     if (!$row = mysqli_fetch_assoc($resultl)){
-
-                        if ($Tarrive <= $TimeArrive) {
-                            $UserStat = "Arrivé à l'heure";
+                        if ($t <= $TimeArrive) {
+                            $UserStat = "Arrived on time";
                         }
                         else{
-                            $UserStat = "Arrivé trop tôt";
-                            /*$msg = "L'employé $Uname est arrivé à une heure suspecte";
-
-// use wordwrap() if lines are longer than 70 characters
-                            $msg = wordwrap($msg, 70);
-
-// send email
-                            mail("levyren38@gmail.com", "Entrée suspecte", $msg);*/
+                            $UserStat = "Arrived late";
                         }
-                        $sql = "INSERT INTO logs (CardNumber, username, SerialNumber, DateLog, TimeIn, UserStat) VALUES (? ,?, ?, CURDATE(), CURTIME(), ?)";
+                        $sql = "INSERT INTO logs (CardNumber, Name, SerialNumber, DateLog, TimeIn, UserStat) VALUES (? ,?, ?, CURDATE(), CURTIME(), ?)";
                         $result = mysqli_stmt_init($conn);
                         if (!mysqli_stmt_prepare($result, $sql)) {
                             echo "SQL_Error_Select_login1";
@@ -91,23 +84,24 @@ if(!empty($_GET['CardID'])){
                             echo "login";
                             exit();
                         }
-
                     }
                     //*****************************************************
-                    //Logout
-                    else {
 
+
+                    //Sortie
+                    else {
+                        
                         if ($t >= $Timeleft && $row['TimeIn'] <= $TimeArrive) {
-                            $UserStat = "Arrivé et départ dans les temps";
+                            $UserStat = "Arrived and Left on time";
                         }
-                        elseif ($t < $Timeleft && $row['TimeIn'] > $TimeArrive){
-                            $UserStat = "Arrivé en retard et parti trop tôt";
+                        elseif ($t < $Timeleft && $row['TimeIn'] > $TimeArrive){   
+                            $UserStat = "Arrived late and Left early";
                         }
                         elseif ($t < $Timeleft && $row['TimeIn'] <= $TimeArrive) {
-                            $UserStat = "Arrivé à temps et parti tôt";
+                            $UserStat = "Arrived on time and Left early";
                         }
                         elseif ($t >= $Timeleft && $row['TimeIn'] > $TimeArrive) {
-                            $UserStat = "Arrivé en retard et parti à temps";
+                            $UserStat = "Arrived late and Left on time";
                         }
                         $sql="UPDATE logs SET TimeOut=CURTIME(), UserStat=? WHERE CardNumber=? AND DateLog=CURDATE()";
                         $result = mysqli_stmt_init($conn);
@@ -126,7 +120,7 @@ if(!empty($_GET['CardID'])){
                 }
             }
             //*****************************************************
-            //An available card has been detected
+            //Une carte disponible a été detectée
             else{
                 $sql = "SELECT CardID_select FROM users WHERE CardID_select=?";
                 $result = mysqli_stmt_init($conn);
@@ -164,7 +158,7 @@ if(!empty($_GET['CardID'])){
                                 mysqli_stmt_bind_param($result, "is", $card_sel, $Card);
                                 mysqli_stmt_execute($result);
 
-                                echo "Cardavailable";
+                                echo "Carte disponible";
                                 exit();
                             }
                         }
@@ -181,7 +175,7 @@ if(!empty($_GET['CardID'])){
                             mysqli_stmt_bind_param($result, "is", $card_sel, $Card);
                             mysqli_stmt_execute($result);
 
-                            echo "Cardavailable";
+                            echo "Carte disponible";
                             exit();
                         }
                     }
@@ -189,9 +183,10 @@ if(!empty($_GET['CardID'])){
             }
         }
         //*****************************************************
-        //New card has been added
+        //Un nouvelle carte a été ajoutée
         else{
             $Uname = "";
+            $prename = "";
             $Number = "";
             $gender= "";
 
@@ -219,7 +214,7 @@ if(!empty($_GET['CardID'])){
                         mysqli_stmt_bind_param($result, "i", $card_sel);
                         mysqli_stmt_execute($result);
 
-                        $sql = "INSERT INTO users (username , SerialNumber, gender, CardID, CardID_select) VALUES (?, ?, ?, ?, ?)";
+                        $sql = "INSERT INTO users (username , prenom, SerialNumber, gender, CardID, CardID_select) VALUES (?,?, ?, ?, ?, ?)";
                         $result = mysqli_stmt_init($conn);
                         if (!mysqli_stmt_prepare($result, $sql)) {
                             echo "SQL_Error_Select_add";
@@ -227,16 +222,16 @@ if(!empty($_GET['CardID'])){
                         }
                         else{
                             $card_sel = 1;
-                            mysqli_stmt_bind_param($result, "sdssi", $Uname, $Number, $gender, $Card, $card_sel);
+                            mysqli_stmt_bind_param($result, "ssdssi", $Uname, $prename, $Number, $gender, $Card, $card_sel);
                             mysqli_stmt_execute($result);
 
-                            echo "succesful";
+                            echo "Réussi";
                             exit();
                         }
                     }
                 }
                 else{
-                    $sql = "INSERT INTO users (username , SerialNumber, gender, CardID, CardID_select) VALUES (?, ?, ?, ?, ?)";
+                    $sql = "INSERT INTO users (username , prenom, SerialNumber, gender, CardID, CardID_select) VALUES (?,?, ?, ?, ?, ?)";
                     $result = mysqli_stmt_init($conn);
                     if (!mysqli_stmt_prepare($result, $sql)) {
                         echo "SQL_Error_Select_add";
@@ -244,10 +239,10 @@ if(!empty($_GET['CardID'])){
                     }
                     else{
                         $card_sel = 1;
-                        mysqli_stmt_bind_param($result, "sdssi", $Uname, $Number, $gender, $Card, $card_sel);
+                        mysqli_stmt_bind_param($result, "ssdssi", $Uname, $prename, $Number, $gender, $Card, $card_sel);
                         mysqli_stmt_execute($result);
 
-                        echo "succesful";
+                        echo "Réussi";
                         exit();
                     }
                 }
@@ -256,9 +251,9 @@ if(!empty($_GET['CardID'])){
     }
 }
 //*****************************************************
-//Empty Card ID
+//Id carte vide
 else{
-    echo "Empty_Card_ID";
+    echo "Carte_ID vide";
     exit();
 }
 mysqli_stmt_close($result);

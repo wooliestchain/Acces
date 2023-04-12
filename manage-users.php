@@ -15,9 +15,9 @@
 
         <div class="topnav">
             <a href="main_page.php"><img src="poste.jpg" alt=""></a>
-            <a href="users.php" class="text">Utilisateurs</a>
-            <a href="manage-users.php" class="text">Gestion des utilisateurs</a>
-            <a href="users-log.php" class="text">Entrée des utilisateurs</a>
+            <a href="users.php" class="text">Employés</a>
+            <a href="manage-users.php" class="text">Gestion des employés</a>
+            <a href="users-log.php" class="text">Entrées/Sorties</a>
             <a class="text">Se deconnecter</a>
         </div>
         <div class="up_info1 alert-danger"></div>
@@ -25,40 +25,27 @@
     </header>
 
 
-        <div class="ajouter">
-            <form action="ajout.php" method="post">
 
-                <input type="text" name="name" id="username1" placeholder="Entrer le nom de l'employé"><br>
-                <input type="text" name="serial" id="serail1" placeholder="Numéro de série"><br>
-                <input type="text" name="card_id" id="serail1" placeholder="ID Carte"><br>
-                <input type="text" name="card_id_select" id="serail1" placeholder="CarteID select"><br>
-
-                <legend>Choisissez le genre</legend>
-
-                <input type="radio" id="femme" name="drone" value="femme" checked>
-                <label for="huey" class="female">Femme</label>
-                <input type="radio" id="homme" name="drone" value="homme">
-                <label for="homme" class="male">Homme</label><br>
-                <input type="submit" value="Ajouter" name="boutton-valider-ajout">
-        </div>
 
 
 
 
 
     <section>
-        <h1 class="user_list">Liste des utilisateurs</h1>
+        <h1 class="user_list"></h1>
         <div class="table_list">
             <table class="table">
                 <thead class="table_primary">
                 <tr>
                     <td class="info">NOM</td>
+                    <td class="info">Prénom</td>
                     <td class="info">Numéro</td>
                     <td class="info">Genre</td>
                     <td class="info" >UID</td>
                     <td  class="info" hidden>UID Select</td>
-                    <td  class="info">Modifier</td>
+                    <td  class="info">Ajouter/Modifier</td>
                     <td  class="info">Profil</td>
+                    <td  class="info">Supprimer</td>
                 </tr>
                 </thead>
                 <tbody class="table_secondary">
@@ -83,12 +70,14 @@
                 ?>
                             <tr>
                                 <td><?php echo $row['username'];?></td>
+                                <td><?php echo $row['prenom'];?></td>
                                 <td><?php echo $row['SerialNumber'];?></td>
                                 <td><?php echo $row['gender'];?></td>
                                 <td ><?php echo $row['CardID'];?></td>
                                 <td hidden><?php echo $row['CardID_select'];?></td>
                                 <td  ><a href="modif.php?CardID=<?=$row['CardID']?>" class="plus" ><img  src="images/edit.png"></a></td>
                                 <td  ><a href="profil.php?username=<?=$row['username']?>" class="plus" ><img  src="images/user.png"></a></td>
+                                <td  ><a href="supprimer.php?id=<?=$row['id']?>" class="plus" ><img  src="images/poubelle.png"></a></td>
 
                             </tr>
                             <?php

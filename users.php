@@ -6,7 +6,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="utilisateurs.css">
+    <link rel="stylesheet" href="utilisateur.css">
 
     <title>Utilisateurs</title>
 </head>
@@ -15,9 +15,9 @@
 
         <div class="topnav">
             <a href="main_page.php"><img src="poste.jpg" alt=""></a>
-            <a href="users.php" class="text">Utilisateurs</a>
-            <a href="manage-users.php" class="text">Gestion des utilisateurs</a>
-            <a href="users-log.php" class="text">Entrée des utilisateurs</a>
+            <a href="users.php" class="text">Employés</a>
+            <a href="manage-users.php" class="text">Gestion des employés</a>
+            <a href="users-log.php" class="text"> Entrées/Sorties</a>
             <a class="text">Se deconnecter</a>
         </div>
         <div class="up_info1 alert-danger"></div>
@@ -40,6 +40,7 @@
                 <tr>
                     <td class="info_users" hidden>ID</td>
                     <td class="info_users">Nom</td>
+                    <td class="info_users">Prénom</td>
                     <td class="info_users" >Numéro</td>
                     <td  class="info_users">Genre</td>
                     <td  class="info_users">Carte ID</td>
@@ -67,6 +68,7 @@
                         <tr>
                             <td hidden><?php echo $row['id'];?></td>
                             <td><?php echo $row['username'];?></td>
+                            <td><?php echo $row['prenom'];?></td>
                             <td><?php echo $row['SerialNumber'];?></td>
                             <td><?php echo $row['gender'];?></td>
                             <td><?php echo $row['CardID'];?></td>

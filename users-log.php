@@ -16,7 +16,7 @@ $con = mysqli_connect($nom_serveur, $utilisateur, $mot_de_passe, $nom_base_donn�
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="logs.css">
+    <link rel="stylesheet" href="log.css">
     <title>Document</title>
 </head>
 <body>
@@ -24,9 +24,9 @@ $con = mysqli_connect($nom_serveur, $utilisateur, $mot_de_passe, $nom_base_donn�
 
         <div class="topnav">
             <a href="main_page.php"><img src="poste.jpg" alt=""></a>
-            <a href="users.php" class="text">Utilisateurs</a>
-            <a href="manage-users.php" class="text">Gestion des utilisateurs</a>
-            <a href="users-log.php" class="text">Entrée des utilisateurs</a>
+            <a href="users.php" class="text">Employés</a>
+            <a href="manage-users.php" class="text">Gestion des employés</a>
+            <a href="users-log.php" class="text">Entrées/Sorties</a>
             <a class="text">Se deconnecter</a>
         </div>
         <div class="up_info1 alert-danger"></div>
@@ -43,7 +43,7 @@ $con = mysqli_connect($nom_serveur, $utilisateur, $mot_de_passe, $nom_base_donn�
         $Timeleft = date("H:i:s", $Tleft);
 
         date_default_timezone_set('Africa/Tunis');
-        $d = date('Y/m/d',time());
+        $d = date('2022/12/03',time());
         $current = date('H:i');
         ?>
         <h2 class="time">
@@ -51,14 +51,18 @@ $con = mysqli_connect($nom_serveur, $utilisateur, $mot_de_passe, $nom_base_donn�
             Heure de départ :<?php echo $Timeleft?><br>
             Heure :<?php echo $current?>
         </h2>
-        <h1 class="logs_list">Liste des entrées du <?php echo $d?></h1>
+        <form method="post" action="export.php">
+            <input type="submit" name="export" class="export" value="Exporter vers Excel" />
+        </form>
+        <h1 class="logs_list">Entrées/Sorties du <?php echo $d?></h1>
         <div class="table_logs_list">
             <table class="table_logs">
                 <thead class="table_logs_primary">
                 <tr>
-                    <td class="info_logs">ID</td>
-                    <td class="info_logs">Nom</td>
+                    <td class="info_logs" hidden>ID</td>
                     <td class="info_logs">CardID</td>
+                    <td class="info_logs">Nom</td>
+                    <td class="info_logs">Prénom</td>
                     <td class="info_logs" >Numéro</td>
                     <td  class="info_logs">Date</td>
                     <td  class="info_logs">Heure d'entrée</td>
@@ -109,9 +113,10 @@ $con = mysqli_connect($nom_serveur, $utilisateur, $mot_de_passe, $nom_base_donn�
                 {
                 ?>
                             <tr>
-                                <td><?php echo $row['id'];?></td>
+                                <td hidden><?php echo $row['id'];?></td>
                                 <td><?php echo $row['CardNumber'];?></td>
                                 <td><?php echo $row['username'];?></td>
+                                <td><?php echo $row['prenom'];?></td>
                                 <td><?php echo $row['SerialNumber'];?></td>
                                 <td><?php echo $row['DateLog'];?></td>
                                 <td><?php echo $row['TimeIn'];?></td>
